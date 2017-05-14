@@ -8,10 +8,12 @@ cpan .
 
 ## Usage
 
+```perl 
 my $imgur = Imgur::API->new(api_key=><your_api_key>);
 
 my $ret = $imgur->image->upload(image=>"http://site.com/image.jpg");
 my $ret = $imgur->image->upload(image=>$imgur->content("../images/temp/something.jpg");
+```
 
 ## More information
 

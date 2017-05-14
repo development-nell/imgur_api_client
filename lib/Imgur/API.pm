@@ -1,13 +1,15 @@
 package Imgur::API;
 
 use strict;
-our $VERSION = "0.0.1";
+our $VERSION = "0.0.2";
 our $ABSTRACT = "Perl Interface to Imgur API";
 use feature qw(say);
+
 use Imgur::API::Endpoint;
 use Imgur::API::Exception;
 use Imgur::API::Content;
 use Imgur::API::Response;
+use Imgur::API::Stats;
 use Data::Dumper;
 use LWP::UserAgent;
 use HTTP::Message;
@@ -21,6 +23,7 @@ has api_secret=>(is=>'ro');
 has api_key=>(is=>'ro');
 has auth_token=>(is=>'rw');
 has ua=>(is=>'ro',default=>sub { LWP::UserAgent->new(); });
+has stats=>(is=>'rw',default=>sub { Imgur::API::Stats->new();});
 
 sub request {
 	my ($this,$path,$method,$params) = @_;
@@ -39,11 +42,14 @@ sub request {
 	} else {
 		$response = $this->ua->$method("https://api.imgur.com/$path",'Authorization'=>"Client-ID ".$this->api_key);
 	}
-	if ($response->is_success) {
+	if ($response->content_type eq "application/json") {
+		$this->stats->update($response);
 		my $json = JSON::XS::decode_json($response->decoded_content);
 		if  (!$json->{success}) {
-			return Imgur::API::Exception->new(code=>$json->{status},message=>$json->{data}->{error});
+			my $e =  Imgur::API::Exception->new(code=>$json->{status},message=>$json->{data}->{error});
+			say Dumper($json);
 		}
+		
 		return Imgur::API::Response->new($json);
 	} else {
 		return Imgur::API::Exception->new(code=>$response->code,message=>$response->status_line);
@@ -51,7 +57,7 @@ sub request {
 }
 
 sub content {
-	my ($self,$what) = @_;
+	my ($this,$what) = @_;
 
 	if ($what=~/^http/i) {
 		return $what;
@@ -110,6 +116,12 @@ sub topic {
 
 	return Imgur::API::Endpoint::Topic->new(dispatcher=>$this);
 }
+sub misc {
+    my ($this) = shift;
+
+    return Imgur::API::Endpoint::Misc->new(dispatcher=>$this);
+}
+
 
 
 1;

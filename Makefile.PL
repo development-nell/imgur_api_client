@@ -3,7 +3,7 @@ use ExtUtils::MakeMaker 7.12; # for XSMULTI option
 
 
 WriteMakefile(
-  NAME           => 'Imgure::API',
+  NAME           => 'Imgur::API',
   VERSION_FROM   => 'lib/Imgur/API.pm',
   PREREQ_PM      => {
 	'ExtUtils::MakeMaker' => '7.12',

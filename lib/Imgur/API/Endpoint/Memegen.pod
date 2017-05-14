@@ -1,0 +1,25 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::Memegen
+
+=head1 SYNOPSISA
+
+ Access to the imgur Memegen API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/memegen
+
+=cut
+
+=head1 METHODS
+ 
+=head2 defaults(%params)
+
+ Get the list of default memes.
+
+=head3 Parameters
+=over 4
+
+=back
+=cut
+
+

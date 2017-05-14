@@ -1,0 +1,21 @@
+=head1 NAME
+
+Imgur::API - A minimal client for Imgur's REST api
+
+=head1 SYNOPSIS
+
+ use Imgur::API;
+
+ my $imgur = Imgur::API->new(api_key=><your api key>);
+
+ my $img_details = $imgur->image->get(image=>'pdX5DZS');
+
+ my $img = $imgur->image->upload(image=>$imgr->content("/home/user/Downloads/what.jpg",title=>"image title",album=>"dCsfeXb");
+ my $ret = $imgur->image->delete(image=>'pdX5DZSsdf54fs");
+ 
+=head1 DESCRIPTION
+
+C<Imgur::API> is a Perl interface to Imgur's REST API. Complete documentation can be found at https://apidocs.imgur.com/.
+
+=cut
+

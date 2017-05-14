@@ -1,0 +1,31 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::[% name %]
+
+=head1 SYNOPSISA
+
+ Access to the imgur [% name %] API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/[% name | lower %]
+
+=cut
+
+=head1 METHODS
+ 
+[% FOREACH method IN methods -%]
+=head2 [% method.sub %](%params)
+
+ [% method.description %]
+
+=head3 Parameters
+=over 4
+[% FOREACH p IN method.params.keys %]
+=item *
+[% p %] [% IF method.params.$p.required %]REQUIRED[% ELSE %]OPTIONAL[% END %]
+ [% method.params.$p.desc %]
+[% END %]
+=back
+=cut
+
+[% END -%]
+

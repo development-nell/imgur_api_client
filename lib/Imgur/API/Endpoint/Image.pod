@@ -1,0 +1,117 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::Image
+
+=head1 SYNOPSISA
+
+ Access to the imgur Image API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/image
+
+=cut
+
+=head1 METHODS
+ 
+=head2 get(%params)
+
+ Get information about an image.
+
+=head3 Parameters
+=over 4
+
+=item *
+image REQUIRED
+ Image
+
+=back
+=cut
+
+=head2 upload(%params)
+
+ Upload a new image.
+
+=head3 Parameters
+=over 4
+
+=item *
+album OPTIONAL
+ 
+                    The id of the album you want to add the image to.
+                    For anonymous albums, {album} should be the
+                    deletehash that is returned at creation.
+                
+
+=item *
+image REQUIRED
+ A binary file, base64 data, or a URL for an image. (up to 10MB)
+
+=item *
+title OPTIONAL
+ The title of the image.
+
+=item *
+description OPTIONAL
+ The description of the image.
+
+=item *
+type OPTIONAL
+ The type of the file that's being sent; file, base64 or URL
+
+=item *
+name OPTIONAL
+ The name of the file, this is automatically detected if uploading a file with a POST and multipart / form-data
+
+=back
+=cut
+
+=head2 delete(%params)
+
+  Deletes an image. For an anonymous image, {id} must be the image's deletehash. If the image belongs to your account then passing the ID of the image is sufficient. 
+
+=head3 Parameters
+=over 4
+
+=item *
+image REQUIRED
+ Image
+
+=back
+=cut
+
+=head2 update(%params)
+
+  Updates the title or description of an image. You can only update an image you own and is associated with your account. For an anonymous image, {id} must be the image's deletehash. 
+
+=head3 Parameters
+=over 4
+
+=item *
+image REQUIRED
+ Image
+
+=item *
+title OPTIONAL
+ The title of the image.
+
+=item *
+description OPTIONAL
+ The description of the image.
+
+=back
+=cut
+
+=head2 favorite(%params)
+
+ Favorite an image with the given ID. The user is required to be logged in to favorite the image.
+
+=head3 Parameters
+=over 4
+
+=item *
+image REQUIRED
+ Image
+
+=back
+=cut
+
+

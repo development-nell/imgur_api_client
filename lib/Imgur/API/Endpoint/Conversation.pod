@@ -1,0 +1,47 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::Conversation
+
+=head1 SYNOPSISA
+
+ Access to the imgur Conversation API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/conversation
+
+=cut
+
+=head1 METHODS
+ 
+=head2 list(%params)
+
+ Get list of all conversations for the logged in user.
+
+=head3 Parameters
+=over 4
+
+=back
+=cut
+
+=head2 get(%params)
+
+ Get information about a specific conversation. Includes messages.
+
+=head3 Parameters
+=over 4
+
+=item *
+page OPTIONAL
+ Page of message thread. Starting at 1 for the most recent 25 messages and counting upwards. Defaults to 1
+
+=item *
+offset OPTIONAL
+ Additional offset in current page, defaults to 0.
+
+=item *
+conversation REQUIRED
+ Conversation
+
+=back
+=cut
+
+

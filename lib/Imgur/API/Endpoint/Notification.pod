@@ -1,0 +1,61 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::Notification
+
+=head1 SYNOPSISA
+
+ Access to the imgur Notification API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/notification
+
+=cut
+
+=head1 METHODS
+ 
+=head2 notifications(%params)
+
+ Get all notifications for the user that's currently logged in
+
+=head3 Parameters
+=over 4
+
+=item *
+new OPTIONAL
+ boolean - false for all notifications, true for only non-viewed notification. Default is true.
+
+=back
+=cut
+
+=head2 get(%params)
+
+ Returns the data about a specific notification
+
+=head3 Parameters
+=over 4
+
+=item *
+notification REQUIRED
+ Notification
+
+=back
+=cut
+
+=head2 viewed(%params)
+
+ Marks a notification as viewed, this way it no longer shows up in the basic notification request
+
+=head3 Parameters
+=over 4
+
+=item *
+ids OPTIONAL
+ To mark multiple notifications as read in one call, pass in an 'ids' parameter (omitting the 'id' parameter in the route) with the value of a comma-separated string of notification ids.
+
+=item *
+notification REQUIRED
+ Notification
+
+=back
+=cut
+
+

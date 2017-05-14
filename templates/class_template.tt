@@ -1,0 +1,23 @@
+package Imgur::API::Endpoint::[% name %];
+
+use strict;
+use Mouse;
+extends 'Imgur::API::Endpoint';
+
+[% FOREACH method IN methods -%]
+sub [% method.sub %] {
+	my ($this,%p) = @_;
+
+	return $this->dispatcher->request(
+		$this->path("[% method.url.base %]",[[% method.url.required %]],[[% method.url.optional %]],\%p),
+		'[% method.method %]',
+		\%p
+	);
+}
+
+[% END -%]
+
+
+1;
+__PACKAGE__->meta->make_immutable;
+

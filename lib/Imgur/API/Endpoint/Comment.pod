@@ -1,0 +1,166 @@
+=head1 NAME
+
+ Imgur::API::Endpoint::Comment
+
+=head1 SYNOPSISA
+
+ Access to the imgur Comment API Endpoint. 
+
+ See: https://api.imgur.com/endpoints/comment
+
+=cut
+
+=head1 METHODS
+ 
+=head2 get(%params)
+
+ Get information about a specific comment.
+
+=head3 Parameters
+=over 4
+
+=item *
+comment REQUIRED
+ Comment
+
+=back
+=cut
+
+=head2 create(%params)
+
+  Creates a new comment, returns the ID of the comment. 
+
+=head3 Parameters
+=over 4
+
+=item *
+parent_id OPTIONAL
+ The ID of the parent comment, this is an alternative method to create a reply.
+
+=item *
+comment REQUIRED
+ The comment text, this is what will be displayed
+
+=item *
+image_id REQUIRED
+ The ID of the image in the gallery that you wish to comment on
+
+=back
+=cut
+
+=head2 delete(%params)
+
+ Delete a comment by the given id.
+
+=head3 Parameters
+=over 4
+
+=item *
+comment REQUIRED
+ Comment
+
+=back
+=cut
+
+=head2 replies(%params)
+
+ Get the comment with all of the replies for the comment.
+
+=head3 Parameters
+=over 4
+
+=item *
+comment REQUIRED
+ Comment
+
+=back
+=cut
+
+=head2 replyCreate(%params)
+
+ Create a reply for the given comment.
+
+=head3 Parameters
+=over 4
+
+=item *
+comment REQUIRED
+ The comment text, this is what will be displayed
+
+=item *
+image_id REQUIRED
+ The ID of the image in the gallery that you wish to comment on
+
+=back
+=cut
+
+=head2 vote(%params)
+
+  Vote on a comment. The {vote} variable can only be set as "up" or "down". 
+
+=head3 Parameters
+=over 4
+
+=item *
+vote REQUIRED
+ Vote
+
+=item *
+comment REQUIRED
+ Comment
+
+=back
+=cut
+
+=head2 report(%params)
+
+ Report a comment for being inappropriate.
+
+=head3 Parameters
+=over 4
+
+=item *
+4 REQUIRED
+ 
+
+=item *
+2 REQUIRED
+ 
+
+=item *
+1 REQUIRED
+ 
+
+=item *
+comment REQUIRED
+ Comment
+
+=item *
+3 REQUIRED
+ 
+
+=item *
+5 REQUIRED
+ 
+
+=item *
+reason OPTIONAL
+ An integer representing the reason for the report
+                            Value
+                                    Description
+                                1
+                                    Doesn't belong on Imgur
+                                2
+                                    Spam
+                                3
+                                    Abusive
+                                4
+                                    Mature content not marked as mature
+                                5
+                                    Pornography
+                                
+
+=back
+=cut
+
+

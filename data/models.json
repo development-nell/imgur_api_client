@@ -1,0 +1,266 @@
+{
+   "account_settings" : [
+      {
+         "name" : "account_url",
+         "type" : "string",
+         "desc" : "The account username"
+      },
+      {
+         "type" : "string",
+         "desc" : "The users email address",
+         "name" : "email"
+      },
+      {
+         "name" : "high_quality",
+         "desc" : "The users ability to upload higher quality images, there will be less compression",
+         "type" : "boolean"
+      },
+      {
+         "desc" : "Automatically allow all images to be publicly accessible",
+         "type" : "boolean",
+         "name" : "public_images"
+      },
+      {
+         "name" : "album_privacy",
+         "desc" : "Set the album privacy to this privacy setting on creation",
+         "type" : "string"
+      },
+      {
+         "name" : "pro_expiration",
+         "desc" : "False if not a pro user, their expiration date if they are.",
+         "type" : "integer or boolean"
+      },
+      {
+         "type" : "boolean",
+         "desc" : "True if the user has accepted the terms of uploading to the Imgur gallery.",
+         "name" : "accepted_gallery_terms"
+      },
+      {
+         "type" : "Array of Strings",
+         "desc" : "The email addresses that have been activated to allow uploading",
+         "name" : "active_emails"
+      },
+      {
+         "desc" : "If the user is accepting incoming messages or not",
+         "type" : "boolean",
+         "name" : "messaging_enabled"
+      },
+      {
+         "name" : "blocked_users",
+         "desc" : "An array of users that have been blocked from messaging, the object is blocked_id and blocked_url.",
+         "type" : "Array of objects"
+      },
+      {
+         "desc" : "True if the user has opted to have mature images displayed in gallery list endpoints.",
+         "type" : "boolean",
+         "name" : "show_mature"
+      },
+      {
+         "desc" : "True unless the user created their account via a third party service such as Google Plus.",
+         "type" : "boolean",
+         "name" : "first_party"
+      }
+   ],
+   "album" : [
+      {
+         "name" : "id",
+         "type" : "string",
+         "desc" : "The ID for the album"
+      },
+      {
+         "name" : "title",
+         "type" : "string",
+         "desc" : "The title of the album in the gallery"
+      },
+      {
+         "name" : "description",
+         "type" : "string",
+         "desc" : "The description of the album in the gallery"
+      },
+      {
+         "type" : "integer",
+         "desc" : "Time inserted into the gallery, epoch time",
+         "name" : "datetime"
+      },
+      {
+         "name" : "cover",
+         "type" : "string",
+         "desc" : "The ID of the album cover image"
+      },
+      {
+         "type" : "integer",
+         "desc" : "The width, in pixels, of the album cover image",
+         "name" : "cover_width"
+      },
+      {
+         "name" : "cover_height",
+         "type" : "integer",
+         "desc" : "The height, in pixels, of the album cover image"
+      },
+      {
+         "type" : "string",
+         "desc" : "The account username or null if it's anonymous.",
+         "name" : "account_url"
+      },
+      {
+         "type" : "int",
+         "desc" : "The account ID  or null if it's anonymous.",
+         "name" : "account_id"
+      },
+      {
+         "desc" : "The privacy level of the album, you can only view public if not logged in as album owner",
+         "type" : "string",
+         "name" : "privacy"
+      },
+      {
+         "desc" : "The view layout of the album.",
+         "type" : "string",
+         "name" : "layout"
+      },
+      {
+         "desc" : "The number of album views",
+         "type" : "integer",
+         "name" : "views"
+      },
+      {
+         "name" : "link",
+         "type" : "string",
+         "desc" : "The URL link to the album"
+      },
+      {
+         "name" : "favorite",
+         "desc" : "Indicates if the current user favorited the image. Defaults to false if not signed in.",
+         "type" : "boolean"
+      },
+      {
+         "name" : "nsfw",
+         "desc" : "Indicates if the image has been marked as nsfw or not. Defaults to null if information is not available.",
+         "type" : "boolean"
+      },
+      {
+         "type" : "string",
+         "desc" : "If the image has been categorized by our backend then this will contain the section the image belongs in. (funny, cats, adviceanimals, wtf, etc)",
+         "name" : "section"
+      },
+      {
+         "type" : "integer",
+         "desc" : "Order number of the album on the user's album page (defaults to 0 if their albums haven't been reordered)",
+         "name" : "order"
+      },
+      {
+         "name" : "deletehash",
+         "type" : "string",
+         "desc" : "OPTIONAL, the deletehash, if you're logged in as the album owner"
+      },
+      {
+         "desc" : "The total number of images in the album",
+         "type" : "integer",
+         "name" : "images_count"
+      },
+      {
+         "desc" : "An array of all the images in the album (only available when requesting the direct album)",
+         "type" : "Array of Images",
+         "name" : "images"
+      },
+      {
+         "name" : "in_gallery",
+         "desc" : "True if the image has been submitted to the gallery, false if otherwise.",
+         "type" : "boolean"
+      }
+   ],
+   "basic" : [],
+   "custom_gallery" : [
+      {
+         "type" : "string",
+         "desc" : "Username of the account that created the custom gallery",
+         "name" : "account_url"
+      },
+      {
+         "name" : "link",
+         "type" : "string",
+         "desc" : "The URL link to the custom gallery"
+      },
+      {
+         "name" : "tags",
+         "desc" : "An array of all the tag names in the custom gallery",
+         "type" : "array"
+      },
+      {
+         "type" : "integer",
+         "desc" : "The total number of gallery items in the custom gallery",
+         "name" : "item_count"
+      },
+      {
+         "type" : "Array of Gallery Images and Gallery Albums",
+         "desc" : "An array of all the gallery items in the custom gallery",
+         "name" : "items"
+      }
+   ],
+   "topic" : [],
+   "comment" : [],
+   "gallery_image" : [],
+   "meme_metadata" : [],
+   "notification" : [],
+   "account" : [
+      {
+         "desc" : "The account id for the username requested.",
+         "type" : "Integer",
+         "name" : "id"
+      },
+      {
+         "desc" : "The account username, will be the same as requested in the URL",
+         "type" : "String",
+         "name" : "url"
+      },
+      {
+         "name" : "bio",
+         "type" : "String",
+         "desc" : "A basic description the user has filled out"
+      },
+      {
+         "name" : "reputation",
+         "type" : "Float",
+         "desc" : "The reputation for the account, in it's numerical format."
+      },
+      {
+         "name" : "created",
+         "type" : "Integer",
+         "desc" : "The epoch time of account creation"
+      },
+      {
+         "name" : "pro_expiration",
+         "type" : "Integer or Boolean",
+         "desc" : "False if not a pro user, their expiration date if they are."
+      }
+   ],
+   "conversation" : [],
+   "tag" : [],
+   "gallery_profile" : [
+      {
+         "name" : "total_gallery_comments",
+         "desc" : "Total number of comments the user has made in the gallery",
+         "type" : "integer"
+      },
+      {
+         "desc" : "Total number of items favorited by the user in the gallery",
+         "type" : "integer",
+         "name" : "total_gallery_favorites"
+      },
+      {
+         "name" : "total_gallery_submissions",
+         "desc" : "Total number of images submitted by the user.",
+         "type" : "integer"
+      },
+      {
+         "name" : "trophies",
+         "type" : "Array",
+         "desc" : "An array of trophies that the user has."
+      }
+   ],
+   "vote" : [],
+   "message" : [],
+   "tag_vote" : [],
+   "image" : [],
+   "gallery_album" : []
+}
+

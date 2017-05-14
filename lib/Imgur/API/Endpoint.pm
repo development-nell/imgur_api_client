@@ -13,7 +13,7 @@ use Imgur::API::Endpoint::Image;
 use Imgur::API::Endpoint::Memegen;
 use Imgur::API::Endpoint::Notification;
 use Imgur::API::Endpoint::Topic;
-use Imgur::API::Endpoint::Topic;
+use Imgur::API::Endpoint::Misc;
 
 use Mouse;
 use Data::Dumper;

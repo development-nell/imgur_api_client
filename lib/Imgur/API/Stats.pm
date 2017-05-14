@@ -17,18 +17,24 @@ has post_reset=>(is=>'rw',default=>sub{0;});
 
 sub update {
 	my ($self,$response) = @_;
-	
-	$self->user_limit($response->header("x-ratelimit-userlimit"));
-	$self->user_remaining($response->header("x-ratelimit-userremaining"));
-	$self->user_reset($response->header("x-ratelimit-userreset"));
 
-	$self->client_limit($response->header("x-ratelimit-clientlimit"));
-	$self->client_remaining($response->header("x-ratelimit-clientlimit"));
-
-	if ($response->header("x-post-rate-limit-remaining")) {
-		$self->post_limit($response->header("x-post-rate-limit-limit"));
-    	$self->post_remaining($response->header("x-post-rate-limit-remaining"));
-		$self->post_limit($response->header("x-ratelimit-clientlimit"));
+	if (ref($response) eq "HTTP::Response") {
+		foreach my $tp (
+			['x-ratelimit-userlimit','user_limit'],['x-ratelimit-userremaining','user_remaining'],
+			['x-ratelimit-userreset','user_reset'],['x-ratelimit-clientlimit','client_limit'],
+			['x-ratelimit-clientlimit','c'],['x-post-rate-limit-limit','post_limit'],
+			['x-post-rate-limit-remaining','post_remaining'],['x-ratelimit-clientlimit','post_limit']
+		) {
+			if ($response->header($tp->[0])) {
+				$self->{$tp->[1]} =  $response->header($tp->[0]);
+			}
+		}
+	} else {
+		foreach my $k (keys %$response) {
+			my $sub = lcfirst($k);
+			$sub=~s/([A-Z])/"_".lc($1)/eg;
+			$self->{$sub} = $response->{$k};
+		}
 	}
 }
 

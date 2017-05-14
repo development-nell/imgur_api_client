@@ -7,11 +7,13 @@ extends 'Imgur::API::Endpoint';
 sub credits {
     my ($this,%p) = @_;
 
-    return $this->dispatcher->request(
-        $this->path("3/account",[],[],\%p),
+    my $ret = $this->dispatcher->request(
+        $this->path("3/credits",[],[],\%p),
         'get',
         \%p
     );
+	$this->dispatcher->stats->update($ret);
+	return $ret;
 }
 
 1;

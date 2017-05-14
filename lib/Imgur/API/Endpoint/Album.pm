@@ -49,7 +49,7 @@ sub update {
 
 	return $this->dispatcher->request(
 		$this->path("3/album/%s",['album'],[],\%p),
-		'post or put',
+		'put',
 		\%p
 	);
 }

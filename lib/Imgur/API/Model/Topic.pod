@@ -1,0 +1,90 @@
+=head1 NAME
+
+ Imgur::API::Model::Topic
+
+=head1 DESCRIPTION
+
+  The base model for a topic. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<id I<integer>>
+
+ ID of the topic.
+
+=item 
+ C<name I<string>>
+
+ Topic name
+
+=item 
+ C<description I<string>>
+
+ Description of the topic
+
+=item 
+ C<css I<string>>
+
+ CSS class used on website to style the ephemeral topic
+
+=item 
+ C<ephemeral I<boolean>>
+
+ Whether it is an ephemeral (e.g. current events) topic
+
+=item 
+ C<topPost I<Gallery Image OR Gallery Album>>
+
+ The top image in this topic
+
+=item 
+ C<heroImage I<Image>>
+
+ The current 'hero' image chosen by the Imgur community staff
+
+=item 
+ C<isHero I<boolean>>
+
+ Whether the topic's heroImage should be used as the overall hero image
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ {
+   "success" : true,
+   "status" : 200,
+   "data" : [
+      {
+         "ephemeral" : false,
+         "name" : "jasdev jokes",
+         "css" : null,
+         "topPost" : {},
+         "description" : "\"We should add more functions, that's what they do in functional programming.\",",
+         "id" : 1
+      },
+      {
+         "topPost" : {},
+         "name" : "Super Smash Bros",
+         "ephemeral" : true,
+         "css" : "smashbros",
+         "description" : "Game is hard. Tag all the n00bs with this topic.",
+         "id" : 6
+      }
+   ]
+}
+
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

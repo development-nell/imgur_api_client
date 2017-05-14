@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Account
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Account API Endpoint. 
 
@@ -12,462 +12,464 @@
 
 =head1 METHODS
  
-=head2 get(%params)
+=head2 get
 
   Request standard user information. If you need the username for the account that is logged in, it is returned in the request for an access token. Note: This endpoint also supports the ability to lookup account base info by account ID. To do so, pass the query parameter account_id. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 galleryFavorites(%params)
+=head2 galleryFavorites
 
  Return the images the user has favorited in the gallery.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-sort OPTIONAL
- 'oldest', or 'newest'. Defaults to 'newest'.
+ C<username> I<required>
+
+ Username
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - allows you to set the page number so you don't have to retrieve all the data at once.
 
 =item *
-username REQUIRED
- Username
+ C<sort> I<optional>
 
-=back
+ 'oldest', or 'newest'. Defaults to 'newest'.
+
 =cut
 
-=head2 favorites(%params)
+=head2 favorites
 
  Returns the users favorited images, only accessible if you're logged in as the user.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
- Username
+ C<sort> I<optional>
 
-=item *
-sort OPTIONAL
  'oldest', or 'newest'. Defaults to 'newest'.
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - allows you to set the page number so you don't have to retrieve all the data at once.
 
-=back
+=item *
+ C<username> I<required>
+
+ Username
+
 =cut
 
-=head2 submissions(%params)
+=head2 submissions
 
  Return the images a user has submitted to the gallery
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
- Username
+ C<page> I<required>
 
-=item *
-page REQUIRED
  Page
 
-=back
+=item *
+ C<username> I<required>
+
+ Username
+
 =cut
 
-=head2 settings(%params)
+=head2 settings
 
  Returns the account settings, only accessible if you're logged in as the user.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 updateSettings(%params)
+=head2 updateSettings
 
  Updates the account settings for a given user, the user must be logged in.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-public_images OPTIONAL
- Set the users images to private or public by default
+ C<accepted_gallery_terms> I<optional>
 
-=item *
-accepted_gallery_terms OPTIONAL
  true | false - The user agreement to the Imgur Gallery terms.
 
 =item *
-username OPTIONAL
- A valid Imgur username (between 4 and 63 alphanumeric characters)
+ C<messaging_enabled> I<optional>
 
-=item *
-newsletter_subscribed OPTIONAL
- true | false - Toggle subscription to email newsletter.
-
-=item *
-messaging_enabled OPTIONAL
  true | false - Allows the user to enable / disable private messages
 
 =item *
-album_privacy OPTIONAL
+ C<show_mature> I<optional>
+
+ true | false - Toggle display of mature images in gallery list endpoints.
+
+=item *
+ C<album_privacy> I<optional>
+
  public | hidden | secret - Sets the default privacy level of albums the users creates
 
 =item *
-bio OPTIONAL
- The biography of the user, is displayed in the gallery profile page.
+ C<username> I<optional>
+
+ A valid Imgur username (between 4 and 63 alphanumeric characters)
 
 =item *
-show_mature OPTIONAL
- true | false - Toggle display of mature images in gallery list endpoints.
+ C<newsletter_subscribed> I<optional>
 
-=back
+ true | false - Toggle subscription to email newsletter.
+
+=item *
+ C<public_images> I<optional>
+
+ Set the users images to private or public by default
+
+=item *
+ C<bio> I<optional>
+
+ The biography of the user, is displayed in the gallery profile page.
+
 =cut
 
-=head2 profile(%params)
+=head2 profile
 
  Returns the totals for the gallery profile.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 verifyEmail(%params)
+=head2 verifyEmail
 
  Checks to see if user has verified their email address
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 sendVerifyEmail(%params)
+=head2 sendVerifyEmail
 
  Sends an email to the user to verify that their email is valid to upload to gallery. Must be logged in as the user to send.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 albums(%params)
+=head2 albums
 
   Get all the albums associated with the account. Must be logged in as the user to see secret and hidden albums. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - allows you to set the page number so you don't have to retrieve all the data at once.
 
-=back
 =cut
 
-=head2 album(%params)
+=head2 album
 
   Get additional information about an album, this endpoint works the same as the Album Endpoint. You can also use any of the additional routes that are used on an album in the album endpoint. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-account REQUIRED
+ C<account> I<required>
+
  Account
 
-=back
 =cut
 
-=head2 albumIds(%params)
+=head2 albumIds
 
  Return an array of all of the album IDs.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - allows you to set the page number so you don't have to retrieve all the data at once.
 
-=back
 =cut
 
-=head2 albumCount(%params)
+=head2 albumCount
 
  Return the total number of albums associated with the account.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 albumDelete(%params)
+=head2 albumDelete
 
  Delete an Album with a given id.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-account REQUIRED
+ C<account> I<required>
+
  Account
 
-=back
 =cut
 
-=head2 comments(%params)
+=head2 comments
 
  Return the comments the user has created.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<sort> I<optional>
+
+ 'best', 'worst', 'oldest', or 'newest'. Defaults to 'newest'.
+
+=item *
+ C<username> I<required>
+
  Username
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  Page number (50 items per page). Defaults to 0.
 
-=item *
-sort OPTIONAL
- 'best', 'worst', 'oldest', or 'newest'. Defaults to 'newest'.
-
-=back
 =cut
 
-=head2 comment(%params)
+=head2 comment
 
   Return information about a specific comment. This endpoint works the same as the Comment Endpoint. You can use any of the additional actions that the comment endpoint allows on this end point. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-account REQUIRED
+ C<account> I<required>
+
  Account
 
-=back
 =cut
 
-=head2 commentIds(%params)
+=head2 commentIds
 
  Return an array of all of the comment IDs.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  Page number (50 items per page). Defaults to 0.
 
 =item *
-sort OPTIONAL
+ C<sort> I<optional>
+
  'best', 'worst', 'oldest', or 'newest'. Defaults to 'newest'.
 
-=back
 =cut
 
-=head2 commentCount(%params)
+=head2 commentCount
 
  Return a count of all of the comments associated with the account.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 commentDelete(%params)
+=head2 commentDelete
 
  Delete a comment. You are required to be logged in as the user whom created the comment.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-account REQUIRED
+ C<account> I<required>
+
  Account
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 images(%params)
+=head2 images
 
   Return all of the images associated with the account. You can page through the images by setting the page, this defaults to 0. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
- Username
+ C<page> I<required>
 
-=item *
-page REQUIRED
  Page
 
-=back
+=item *
+ C<username> I<required>
+
+ Username
+
 =cut
 
-=head2 image(%params)
+=head2 image
 
   Return information about a specific image. This endpoint works the same as the Image Endpoint. You can use any of the additional actions that the image endpoint with this endpoint. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-account REQUIRED
- Account
+ C<username> I<required>
 
-=item *
-username REQUIRED
  Username
 
-=back
+=item *
+ C<account> I<required>
+
+ Account
+
 =cut
 
-=head2 imageIds(%params)
+=head2 imageIds
 
   Returns an array of Image IDs that are associated with the account. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-page OPTIONAL
- integer - allows you to set the page number so you don't have to retrieve all the data at once.
+ C<username> I<required>
 
-=item *
-username REQUIRED
  Username
 
-=back
+=item *
+ C<page> I<optional>
+
+ integer - allows you to set the page number so you don't have to retrieve all the data at once.
+
 =cut
 
-=head2 imageCount(%params)
+=head2 imageCount
 
   Returns the total number of images associated with the account. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
-=head2 imageDelete(%params)
+=head2 imageDelete
 
  Deletes an Image. This requires a delete hash rather than an ID.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-deletehash REQUIRED
- Deletehash
+ C<username> I<required>
 
-=item *
-username REQUIRED
  Username
 
-=back
+=item *
+ C<deletehash> I<required>
+
+ Deletehash
+
 =cut
 
-=head2 replies(%params)
+=head2 replies
 
  Returns all of the reply notifications for the user. Required to be logged in as that user
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-new OPTIONAL
+ C<new> I<optional>
+
  boolean - false for all notifications, true for only non-viewed notification. Default is true.
 
 =item *
-username REQUIRED
+ C<username> I<required>
+
  Username
 
-=back
 =cut
 
 

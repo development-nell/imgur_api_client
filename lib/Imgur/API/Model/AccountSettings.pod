@@ -1,0 +1,103 @@
+=head1 NAME
+
+ Imgur::API::Model::AccountSettings
+
+=head1 DESCRIPTION
+
+  The account settings, only accessible if you're logged in as the user. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<account_url I<string>>
+
+ The account username
+
+=item 
+ C<email I<string>>
+
+ The users email address
+
+=item 
+ C<high_quality I<boolean>>
+
+ The users ability to upload higher quality images, there will be less compression
+
+=item 
+ C<public_images I<boolean>>
+
+ Automatically allow all images to be publicly accessible
+
+=item 
+ C<album_privacy I<string>>
+
+ Set the album privacy to this privacy setting on creation
+
+=item 
+ C<pro_expiration I<integer or boolean>>
+
+ False if not a pro user, their expiration date if they are.
+
+=item 
+ C<accepted_gallery_terms I<boolean>>
+
+ True if the user has accepted the terms of uploading to the Imgur gallery.
+
+=item 
+ C<active_emails I<Array of Strings>>
+
+ The email addresses that have been activated to allow uploading
+
+=item 
+ C<messaging_enabled I<boolean>>
+
+ If the user is accepting incoming messages or not
+
+=item 
+ C<blocked_users I<Array of objects>>
+
+ An array of users that have been blocked from messaging, the object is blocked_id and blocked_url.
+
+=item 
+ C<show_mature I<boolean>>
+
+ True if the user has opted to have mature images displayed in gallery list endpoints.
+
+=item 
+ C<first_party I<boolean>>
+
+ True unless the user created their account via a third party service such as Google Plus.
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ {
+   "success" : true,
+   "data" : {
+      "show_mature" : false,
+      "public_images" : false,
+      "high_quality" : true,
+      "album_privacy" : "secret",
+      "accepted_gallery_terms" : true,
+      "first_party" : true,
+      "pro_expiration" : false,
+      "active_emails" : [],
+      "email" : "josh@imgur.com"
+   },
+   "status" : 200
+}
+
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

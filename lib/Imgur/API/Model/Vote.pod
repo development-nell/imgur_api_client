@@ -1,0 +1,46 @@
+=head1 NAME
+
+ Imgur::API::Model::Vote
+
+=head1 DESCRIPTION
+
+  The base model for a vote. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<ups I<integer>>
+
+ Number of upvotes
+
+=item 
+ C<downs I<integer>>
+
+ Number of downvotes
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ {
+   "success" : true,
+   "data" : {
+      "ups" : 4511,
+      "downs" : 12
+   },
+   "status" : 200
+}
+
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

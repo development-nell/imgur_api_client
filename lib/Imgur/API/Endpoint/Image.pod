@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Image
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Image API Endpoint. 
 
@@ -12,29 +12,33 @@
 
 =head1 METHODS
  
-=head2 get(%params)
+=head2 get
 
  Get information about an image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image REQUIRED
+ C<image> I<required>
+
  Image
 
-=back
 =cut
 
-=head2 upload(%params)
+=head2 upload
 
  Upload a new image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-album OPTIONAL
+ C<title> I<optional>
+
+ The title of the image.
+
+=item *
+ C<album> I<optional>
+
  
                     The id of the album you want to add the image to.
                     For anonymous albums, {album} should be the
@@ -42,76 +46,74 @@ album OPTIONAL
                 
 
 =item *
-image REQUIRED
+ C<description> I<optional>
+
+ The description of the image.
+
+=item *
+ C<image> I<required>
+
  A binary file, base64 data, or a URL for an image. (up to 10MB)
 
 =item *
-title OPTIONAL
- The title of the image.
+ C<name> I<optional>
 
-=item *
-description OPTIONAL
- The description of the image.
-
-=item *
-type OPTIONAL
- The type of the file that's being sent; file, base64 or URL
-
-=item *
-name OPTIONAL
  The name of the file, this is automatically detected if uploading a file with a POST and multipart / form-data
 
-=back
+=item *
+ C<type> I<optional>
+
+ The type of the file that's being sent; file, base64 or URL
+
 =cut
 
-=head2 delete(%params)
+=head2 delete
 
   Deletes an image. For an anonymous image, {id} must be the image's deletehash. If the image belongs to your account then passing the ID of the image is sufficient. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image REQUIRED
+ C<image> I<required>
+
  Image
 
-=back
 =cut
 
-=head2 update(%params)
+=head2 update
 
   Updates the title or description of an image. You can only update an image you own and is associated with your account. For an anonymous image, {id} must be the image's deletehash. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image REQUIRED
- Image
+ C<description> I<optional>
+
+ The description of the image.
 
 =item *
-title OPTIONAL
+ C<title> I<optional>
+
  The title of the image.
 
 =item *
-description OPTIONAL
- The description of the image.
+ C<image> I<required>
 
-=back
+ Image
+
 =cut
 
-=head2 favorite(%params)
+=head2 favorite
 
  Favorite an image with the given ID. The user is required to be logged in to favorite the image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image REQUIRED
+ C<image> I<required>
+
  Image
 
-=back
 =cut
 
 

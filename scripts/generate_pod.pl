@@ -11,7 +11,7 @@ my $tt = Template->new();
 foreach my $endpoint (keys %$data) {
 	say $endpoint;
 	my $stash = {name=>$endpoint,methods=>$data->{$endpoint}};
-	#process_template("templates/class_template.tt","lib/Imgur/API/Endpoint/$endpoint.pm",$stash);
+
 	process_template("templates/pod_template.tt","lib/Imgur/API/Endpoint/$endpoint.pod",$stash);
 }
 
@@ -21,7 +21,8 @@ sub process_template {
 	my $out = '';
 	$tt->process($template,$stash,\$out);
 
-    open(FO,">",$output);
+
+    open(FO,">",$output) || die;
     print FO $out;
     close(FO);
 }

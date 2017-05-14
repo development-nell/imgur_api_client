@@ -1,0 +1,91 @@
+=head1 NAME
+
+ Imgur::API::Model::Notification
+
+=head1 DESCRIPTION
+
+  The base model for a notification. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<id I<integer>>
+
+ The ID for the notification
+
+=item 
+ C<account_id I<integer>>
+
+ The Account ID for the notification
+
+=item 
+ C<viewed I<boolean>>
+
+ Has the user viewed the image yet?
+
+=item 
+ C<content I<Mixed>>
+
+ This can be any other model, currently only using comments and conversation metadata.
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ 
+            {
+    "data": {
+        "replies": [{
+            "id": 4511,
+            "account_id": 384077,
+            "viewed": false,
+            "content": {
+                "album_cover": null,
+                "author": "jasdev",
+                "author_id": 3698510,
+                "children": [],
+                "comment": "Reply test",
+                "datetime": 1406070774,
+                "deleted": false,
+                "downs": 0,
+                "id": 3616,
+                "image_id": "VK9VqcM",
+                "on_album": false,
+                "parent_id": 3615,
+                "points": 1,
+                "ups": 1,
+                "vote": null
+            }
+        }],
+        "messages": [{
+            "id": 4523,
+            "account_id": 384077,
+            "viewed": false,
+            "content": {
+                "id": "620",
+                "from": "jasdev",
+                "account_id": "384077",
+                "with_account": "3698510",
+                "last_message": "wow. such message.",
+                "message_num": "103",
+                "datetime": 1406935917
+            }
+        }]
+    },
+    "success": true,
+    "status": 200
+}
+          
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

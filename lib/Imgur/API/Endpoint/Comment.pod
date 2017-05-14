@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Comment
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Comment API Endpoint. 
 
@@ -12,139 +12,123 @@
 
 =head1 METHODS
  
-=head2 get(%params)
+=head2 get
 
  Get information about a specific comment.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  Comment
 
-=back
 =cut
 
-=head2 create(%params)
+=head2 create
 
   Creates a new comment, returns the ID of the comment. 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-parent_id OPTIONAL
+ C<parent_id> I<optional>
+
  The ID of the parent comment, this is an alternative method to create a reply.
 
 =item *
-comment REQUIRED
- The comment text, this is what will be displayed
+ C<image_id> I<required>
 
-=item *
-image_id REQUIRED
  The ID of the image in the gallery that you wish to comment on
 
-=back
+=item *
+ C<comment> I<required>
+
+ The comment text, this is what will be displayed
+
 =cut
 
-=head2 delete(%params)
+=head2 delete
 
  Delete a comment by the given id.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  Comment
 
-=back
 =cut
 
-=head2 replies(%params)
+=head2 replies
 
  Get the comment with all of the replies for the comment.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  Comment
 
-=back
 =cut
 
-=head2 replyCreate(%params)
+=head2 replyCreate
 
  Create a reply for the given comment.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  The comment text, this is what will be displayed
 
 =item *
-image_id REQUIRED
+ C<image_id> I<required>
+
  The ID of the image in the gallery that you wish to comment on
 
-=back
 =cut
 
-=head2 vote(%params)
+=head2 vote
 
   Vote on a comment. The {vote} variable can only be set as "up" or "down". 
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-vote REQUIRED
+ C<vote> I<required>
+
  Vote
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  Comment
 
-=back
 =cut
 
-=head2 report(%params)
+=head2 report
 
  Report a comment for being inappropriate.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-4 REQUIRED
+ C<5> I<required>
+
  
 
 =item *
-2 REQUIRED
+ C<2> I<required>
+
  
 
 =item *
-1 REQUIRED
- 
+ C<reason> I<optional>
 
-=item *
-comment REQUIRED
- Comment
-
-=item *
-3 REQUIRED
- 
-
-=item *
-5 REQUIRED
- 
-
-=item *
-reason OPTIONAL
  An integer representing the reason for the report
                             Value
                                     Description
@@ -160,7 +144,26 @@ reason OPTIONAL
                                     Pornography
                                 
 
-=back
+=item *
+ C<1> I<required>
+
+ 
+
+=item *
+ C<comment> I<required>
+
+ Comment
+
+=item *
+ C<4> I<required>
+
+ 
+
+=item *
+ C<3> I<required>
+
+ 
+
 =cut
 
 

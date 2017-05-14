@@ -1,0 +1,34 @@
+=head1 NAME
+
+ Imgur::API::Model::[% model.pname %]
+
+=head1 DESCRIPTION
+
+ [% model.description %]
+
+=cut
+
+=head1 FIELDS
+ 
+[% FOREACH field IN model.fields -%]
+=item 
+ C<[% field.name %] I<[% field.type %]>>
+
+ [% field.desc %]
+
+[% END %]
+=head1 EXAMPLE
+
+=begin json
+
+ [% model.example %]
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Topic
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Topic API Endpoint. 
 
@@ -12,58 +12,58 @@
 
 =head1 METHODS
  
-=head2 defaults(%params)
+=head2 defaults
 
  Get the list of default topics.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
-=back
 =cut
 
-=head2 galleryTopic(%params)
+=head2 galleryTopic
 
  View gallery items for a topic
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-sort OPTIONAL
- viral | time | top - defaults to viral
+ C<page> I<optional>
 
-=item *
-page OPTIONAL
  integer - the data paging number
 
 =item *
-topic_id REQUIRED
+ C<topic_id> I<required>
+
  The ID or URL-formatted name of the topic. If using a topic's name, replace its spaces with underscores (Mother's_Day).
 
 =item *
-window OPTIONAL
+ C<window> I<optional>
+
  Change the date range of the request if the sort is "top", day | week | month | year | all, defaults to week
 
-=back
+=item *
+ C<sort> I<optional>
+
+ viral | time | top - defaults to viral
+
 =cut
 
-=head2 galleryTopicItem(%params)
+=head2 galleryTopicItem
 
  View a single item in a gallery topic
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-topic_id REQUIRED
+ C<topic_id> I<required>
+
  The ID or URL-formatted name of the topic. If using a topic's name, replace its spaces with underscores (Mother's_Day).
 
 =item *
-item_id REQUIRED
+ C<item_id> I<required>
+
  The ID for the gallery item.
 
-=back
 =cut
 
 

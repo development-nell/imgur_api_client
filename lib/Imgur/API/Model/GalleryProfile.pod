@@ -1,0 +1,69 @@
+=head1 NAME
+
+ Imgur::API::Model::GalleryProfile
+
+=head1 DESCRIPTION
+
+  The totals for a users gallery information. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<total_gallery_comments I<integer>>
+
+ Total number of comments the user has made in the gallery
+
+=item 
+ C<total_gallery_favorites I<integer>>
+
+ Total number of items favorited by the user in the gallery
+
+=item 
+ C<total_gallery_submissions I<integer>>
+
+ Total number of images submitted by the user.
+
+=item 
+ C<trophies I<Array>>
+
+ An array of trophies that the user has.
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ {
+   "status" : 200,
+   "data" : {
+      "total_gallery_submissions" : 4,
+      "total_gallery_likes" : 23,
+      "trophies" : [
+         {
+            "image" : "http://s.imgur.com/images/trophies/a84ade.png",
+            "description" : "Be a member of Imgur for one year.",
+            "id" : 1,
+            "name" : "1 Year",
+            "datetime" : 1357344455,
+            "name_clean" : "1Years",
+            "data" : null,
+            "data_link" : null
+         }
+      ],
+      "total_gallery_comments" : 40
+   },
+   "success" : true
+}
+
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

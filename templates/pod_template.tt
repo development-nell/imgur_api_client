@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::[% name %]
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur [% name %] API Endpoint. 
 
@@ -13,18 +13,17 @@
 =head1 METHODS
  
 [% FOREACH method IN methods -%]
-=head2 [% method.sub %](%params)
+=head2 [% method.sub %]
 
  [% method.description %]
 
-=head3 Parameters
-=over 4
+B<Parameters>
 [% FOREACH p IN method.params.keys %]
 =item *
-[% p %] [% IF method.params.$p.required %]REQUIRED[% ELSE %]OPTIONAL[% END %]
+ C<[% p %]> I<[% IF method.params.$p.required %]required[% ELSE %]optional[% END %]>
+
  [% method.params.$p.desc %]
 [% END %]
-=back
 =cut
 
 [% END -%]

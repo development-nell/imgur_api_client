@@ -1,0 +1,63 @@
+=head1 NAME
+
+ Imgur::API::Model::Message
+
+=head1 DESCRIPTION
+
+  The base model for a message. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<id I<integer>>
+
+ The ID for the message
+
+=item 
+ C<from I<string>>
+
+ Account username of person sending the message
+
+=item 
+ C<account_id I<integer>>
+
+ The account ID of the person receiving the message
+
+=item 
+ C<sender_id I<integer>>
+
+ The account ID of the person who sent the message
+
+=item 
+ C<body I<string>>
+
+ Text of the message
+
+=item 
+ C<conversation_id I<integer>>
+
+ ID for the overall conversation
+
+=item 
+ C<datetime I<integer>>
+
+ Time message was sent, epoch time
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ 
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

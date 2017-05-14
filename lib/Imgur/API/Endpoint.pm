@@ -3,7 +3,6 @@ package Imgur::API::Endpoint;
 use strict;
 
 use Imgur::API::Endpoint::Account;
-use Imgur::API::Endpoint::Account;
 use Imgur::API::Endpoint::Album;
 use Imgur::API::Endpoint::Comment;
 use Imgur::API::Endpoint::Conversation;

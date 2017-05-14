@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Gallery
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Gallery API Endpoint. 
 
@@ -12,364 +12,359 @@
 
 =head1 METHODS
  
-=head2 get(%params)
+=head2 get
 
  Returns the images in the gallery. For example the main gallery is https://api.imgur.com/3/gallery/hot/viral/0.json
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-showViral OPTIONAL
- true | false - Show or hide viral images from the 'user' section. Defaults to true
+ C<window> I<optional>
 
-=item *
-section OPTIONAL
- hot | top | user - defaults to hot
-
-=item *
-window OPTIONAL
  Change the date range of the request if the section is "top", day | week | month | year | all, defaults to day
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - the data paging number
 
 =item *
-sort OPTIONAL
+ C<section> I<optional>
+
+ hot | top | user - defaults to hot
+
+=item *
+ C<showViral> I<optional>
+
+ true | false - Show or hide viral images from the 'user' section. Defaults to true
+
+=item *
+ C<sort> I<optional>
+
  viral | top | time | rising (only available with user section) - defaults to viral
 
-=back
 =cut
 
-=head2 memeSubgallery(%params)
+=head2 memeSubgallery
 
  View images for memes subgallery
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-window OPTIONAL
- Change the date range of the request if the sort is "top", day | week | month | year | all, defaults to week
+ C<sort> I<optional>
+
+ viral | time | top - defaults to viral
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - the data paging number
 
 =item *
-sort OPTIONAL
- viral | time | top - defaults to viral
+ C<window> I<optional>
 
-=back
+ Change the date range of the request if the sort is "top", day | week | month | year | all, defaults to week
+
 =cut
 
-=head2 memeSubgalleryImage(%params)
+=head2 memeSubgalleryImage
 
  View a single image in the memes gallery
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image_id REQUIRED
+ C<image_id> I<required>
+
  The ID for the image.
 
-=back
 =cut
 
-=head2 subreddit(%params)
+=head2 subreddit
 
  View gallery images for a subreddit
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  integer - the data paging number
 
 =item *
-window OPTIONAL
+ C<window> I<optional>
+
  Change the date range of the request if the sort is "top", day | week | month | year | all, defaults to week
 
 =item *
-sort OPTIONAL
- time | top - defaults to time
+ C<subreddit> I<required>
 
-=item *
-subreddit REQUIRED
  pics - A valid subreddit name
 
-=back
+=item *
+ C<sort> I<optional>
+
+ time | top - defaults to time
+
 =cut
 
-=head2 subredditImage(%params)
+=head2 subredditImage
 
  View a single image in the subreddit
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-image_id REQUIRED
- The ID for the image.
+ C<subreddit> I<required>
 
-=item *
-subreddit REQUIRED
  pics - A valid subreddit name
 
-=back
+=item *
+ C<image_id> I<required>
+
+ The ID for the image.
+
 =cut
 
-=head2 tag(%params)
+=head2 tag
 
  View images for a gallery tag
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-sort OPTIONAL
- viral | time | top - defaults to viral
+ C<window> I<optional>
 
-=item *
-page OPTIONAL
- integer - the data paging number
-
-=item *
-window OPTIONAL
  Change the date range of the request if the sort is "top", day | week | month | year | all, defaults to week
 
 =item *
-t_name REQUIRED
+ C<page> I<optional>
+
+ integer - the data paging number
+
+=item *
+ C<sort> I<optional>
+
+ viral | time | top - defaults to viral
+
+=item *
+ C<t_name> I<required>
+
  The name of the tag.
 
-=back
 =cut
 
-=head2 tagImage(%params)
+=head2 tagImage
 
  View a single image in a gallery tag
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-t_name REQUIRED
+ C<t_name> I<required>
+
  The name of the tag.
 
 =item *
-image_id REQUIRED
+ C<image_id> I<required>
+
  The ID for the image.
 
-=back
 =cut
 
-=head2 itemTags(%params)
+=head2 itemTags
 
  View tags for a gallery item
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-id REQUIRED
+ C<id> I<required>
+
  ID of the gallery item
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 tagVote(%params)
+=head2 tagVote
 
  Vote for a tag, 'up' or 'down' vote. Send the same value again to undo a vote.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
- Gallery
+ C<t_name> I<required>
 
-=item *
-id REQUIRED
- ID of the gallery item
-
-=item *
-t_name REQUIRED
  Name of the tag (implicitly created, if doesn't exist)
 
 =item *
-vote REQUIRED
+ C<vote> I<required>
+
  'up' or 'down'
 
-=back
+=item *
+ C<gallery> I<required>
+
+ Gallery
+
+=item *
+ C<id> I<required>
+
+ ID of the gallery item
+
 =cut
 
-=head2 updateGalleryTags(%params)
+=head2 updateGalleryTags
 
  Update the tags for a post in the gallery
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
- Gallery
+ C<tags> I<required>
 
-=item *
-id REQUIRED
- ID of the gallery item
-
-=item *
-tags REQUIRED
  The name of the tags you wish to associate with a post. Can be passed as tags[]=funny&tags[]=cat or tags=funny,cat/td>
                     
 
-=back
+=item *
+ C<gallery> I<required>
+
+ Gallery
+
+=item *
+ C<id> I<required>
+
+ ID of the gallery item
+
 =cut
 
-=head2 search(%params)
+=head2 search
 
  Search the gallery with a given query string.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-sort OPTIONAL
+ C<sort> I<optional>
+
  time | viral | top - defaults to time
 
 =item *
-window OPTIONAL
- Change the date range of the request if the sort is 'top', day | week | month | year | all, defaults to all.
+ C<page> I<optional>
 
-=item *
-page OPTIONAL
  integer - the data paging number
 
-=back
+=item *
+ C<window> I<optional>
+
+ Change the date range of the request if the sort is 'top', day | week | month | year | all, defaults to all.
+
 =cut
 
-=head2 random(%params)
+=head2 random
 
  Returns a random set of gallery images.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-page OPTIONAL
+ C<page> I<optional>
+
  A page of random gallery images, from 0-50. Pages are regenerated every hour.
 
-=back
 =cut
 
-=head2 toGallery(%params)
+=head2 toGallery
 
  Share an Album or Image to the Gallery.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-title REQUIRED
- The title of the image. This is required.
+ C<gallery> I<required>
 
-=item *
-terms OPTIONAL
- If the user has not accepted our terms yet, this endpoint will return an error. To by-pass the terms in general simply set this value to 1.
-
-=item *
-gallery REQUIRED
  Gallery
 
 =item *
-topic OPTIONAL
- Topic name
+ C<tags[]> I<optional>
+
+ The name of the tags you wish to associate with a post. Can be passed as tags[]=funny&tags[]=cat or tags=funny,cat
 
 =item *
-mature OPTIONAL
+ C<mature> I<optional>
+
  If the post is mature, set this value to 1.
 
 =item *
-tags[] OPTIONAL
- The name of the tags you wish to associate with a post. Can be passed as tags[]=funny&tags[]=cat or tags=funny,cat
+ C<title> I<required>
 
-=back
+ The title of the image. This is required.
+
+=item *
+ C<topic> I<optional>
+
+ Topic name
+
+=item *
+ C<terms> I<optional>
+
+ If the user has not accepted our terms yet, this endpoint will return an error. To by-pass the terms in general simply set this value to 1.
+
 =cut
 
-=head2 fromGallery(%params)
+=head2 fromGallery
 
  Remove an image from the gallery. You must be logged in as the owner of the item to do this action.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 album(%params)
+=head2 album
 
  Get additional information about an album in the gallery.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 image(%params)
+=head2 image
 
  Get additional information about an image in the gallery.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 reporting(%params)
+=head2 reporting
 
  Report an Image in the gallery
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-2 REQUIRED
- 
+ C<reason> I<optional>
 
-=item *
-4 REQUIRED
- 
-
-=item *
-1 REQUIRED
- 
-
-=item *
-3 REQUIRED
- 
-
-=item *
-reason OPTIONAL
  An integer representing the reason for the report
                             Value
                                     Description
@@ -386,146 +381,164 @@ reason OPTIONAL
                                 
 
 =item *
-5 REQUIRED
+ C<2> I<required>
+
  
 
-=back
+=item *
+ C<5> I<required>
+
+ 
+
+=item *
+ C<4> I<required>
+
+ 
+
+=item *
+ C<3> I<required>
+
+ 
+
+=item *
+ C<1> I<required>
+
+ 
+
 =cut
 
-=head2 votes(%params)
+=head2 votes
 
  Get the vote information about an image
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 voting(%params)
+=head2 voting
 
  Vote for an image, 'up' or 'down' vote. Send 'veto' to undo a vote.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-vote REQUIRED
- Vote
+ C<gallery> I<required>
 
-=item *
-gallery REQUIRED
  Gallery
 
-=back
+=item *
+ C<vote> I<required>
+
+ Vote
+
 =cut
 
-=head2 comments(%params)
+=head2 comments
 
  Comment on an image in the gallery.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-sort OPTIONAL
- best | top | new - defaults to best 
+ C<gallery> I<required>
 
-=item *
-gallery REQUIRED
  Gallery
 
-=back
+=item *
+ C<sort> I<optional>
+
+ best | top | new - defaults to best 
+
 =cut
 
-=head2 comment(%params)
+=head2 comment
 
  Information about a specific comment. This action also allows any of the additional actions provided in the Comment Endpoint.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  Comment
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 commentCreation(%params)
+=head2 commentCreation
 
  Create a comment for an image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-comment REQUIRED
+ C<comment> I<required>
+
  The text of the comment.
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 commentReply(%params)
+=head2 commentReply
 
  Reply to a comment that has been created for an image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-commentReply REQUIRED
+ C<commentReply> I<required>
+
  CommentReply
 
 =item *
-gallery REQUIRED
- Gallery
+ C<comment> I<required>
 
-=item *
-comment REQUIRED
  The text you want to use as the reply.
 
-=back
+=item *
+ C<gallery> I<required>
+
+ Gallery
+
 =cut
 
-=head2 commentIds(%params)
+=head2 commentIds
 
  List all of the IDs for the comments on an image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
-=head2 commentCount(%params)
+=head2 commentCount
 
  The number of comments on an Image.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
 =item *
-gallery REQUIRED
+ C<gallery> I<required>
+
  Gallery
 
-=back
 =cut
 
 

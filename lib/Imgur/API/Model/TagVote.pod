@@ -1,0 +1,68 @@
+=head1 NAME
+
+ Imgur::API::Model::TagVote
+
+=head1 DESCRIPTION
+
+  The base model for a tag vote. 
+
+=cut
+
+=head1 FIELDS
+ 
+=item 
+ C<ups I<integer>>
+
+ Number of upvotes.
+
+=item 
+ C<downs I<integer>>
+
+ Number of downvotes.
+
+=item 
+ C<name I<string>>
+
+ Name of the tag.
+
+=item 
+ C<author I<string>>
+
+ Author of the tag.
+
+
+=head1 EXAMPLE
+
+=begin json
+
+ {
+   "data" : {
+      "tags" : [
+         {
+            "downs" : 5,
+            "ups" : 20,
+            "name" : "funny",
+            "author" : "jasdev"
+         },
+         {
+            "author" : "gottagitgit",
+            "downs" : 4,
+            "ups" : 10,
+            "name" : "cute"
+         }
+      ]
+   },
+   "status" : 200,
+   "success" : true
+}
+
+
+=end json
+
+=cut
+
+=head1 SEE ALSO
+
+http://api.imgur.com/models/
+
+

@@ -2,7 +2,7 @@
 
  Imgur::API::Endpoint::Memegen
 
-=head1 SYNOPSISA
+=head1 DESCRIPTION
 
  Access to the imgur Memegen API Endpoint. 
 
@@ -12,14 +12,12 @@
 
 =head1 METHODS
  
-=head2 defaults(%params)
+=head2 defaults
 
  Get the list of default memes.
 
-=head3 Parameters
-=over 4
+B<Parameters>
 
-=back
 =cut
 
 

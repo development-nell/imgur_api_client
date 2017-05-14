@@ -10,14 +10,10 @@
 
 =head1 METHODS
  
-=head2 credits(%params)
+=head2 credits
 
  Get user/client/post limits for client.
 
-=head3 Parameters
-=over 4
-
-=back
 =cut
 
 

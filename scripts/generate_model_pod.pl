@@ -5,14 +5,13 @@ use Template;
 use Data::Dumper;
 use feature qw(say);
 
-open(FI,"data/endpoints.json");
+open(FI,"data/models.json");
 my $data = JSON::XS::decode_json(join("",<FI>));
 my $tt = Template->new();
-foreach my $endpoint (keys %$data) {
-	say $endpoint;
-	my $stash = {name=>$endpoint,methods=>$data->{$endpoint}};
-	#process_template("templates/class_template.tt","lib/Imgur/API/Endpoint/$endpoint.pm",$stash);
-	process_template("templates/pod_template.tt","lib/Imgur/API/Endpoint/$endpoint.pod",$stash);
+foreach my $model (keys %$data) {
+	say $model;
+	my $stash = {model=>$data->{$model}->[0]};
+	process_template("templates/model_pod_template.tt","lib/Imgur/API/Model/$data->{$model}->[0]->{pname}.pod",$stash);
 }
 
 sub process_template {

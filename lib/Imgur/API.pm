@@ -32,9 +32,6 @@ sub request {
 
 	$this->ua->agent("Imgur::API/0.0,1");
 
-	my $request = HTTP::Request->new($method=>$path);
-	$request->header('Authorization'=>"Client-ID ".$this->client_id);
-
 	my $auth;
 	if ($this->access_token) {
 		$auth="Bearer ".$this->access_token;
@@ -42,8 +39,10 @@ sub request {
 		$auth="Client-ID ".$this->client_id;
 	}
 
+	say STDERR $auth;
+
 	my $response;
-	if ($method=~/(?:post|put|get)/) {	
+	if ($method=~/(?:post|put)/) {	
 		$response = $this->ua->$method($path,$params,'Authorization'=>$auth);
 	} else {
 		$response = $this->ua->$method($path,'Authorization'=>$auth);

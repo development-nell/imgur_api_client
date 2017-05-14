@@ -29,7 +29,7 @@ sub viewed {
 
 	return $this->dispatcher->request(
 		$this->path("3/notification/%s",['notification'],[],\%p),
-		'put or post or delete',
+		'put',
 		\%p
 	);
 }

@@ -19,9 +19,9 @@ use URI::Escape;
 
 use Moo;
 
-has api_secret=>(is=>'ro');
-has api_key=>(is=>'ro');
-has auth_token=>(is=>'rw');
+has client_secret=>(is=>'ro');
+has client_id=>(is=>'ro',required=>1);
+has access_token=>(is=>'rw');
 has ua=>(is=>'ro',default=>sub { LWP::UserAgent->new(); });
 has stats=>(is=>'rw',default=>sub { Imgur::API::Stats->new();});
 
@@ -32,16 +32,23 @@ sub request {
 
 	$this->ua->agent("Imgur::API/0.0,1");
 
-	my $request = HTTP::Request->new($method=>"https://api.imgur.com/$path");
-	$request->header('Authorization'=>"Client-ID ".$this->api_key);
+	my $request = HTTP::Request->new($method=>$path);
+	$request->header('Authorization'=>"Client-ID ".$this->client_id);
 
-	#$request->content(join("&",map {($_=>$params->{$_})} keys %$params));#"title=wat&image=".uri_escape("http://fi.somethingawful.com/safs/titles/9b/7f/00142877.0002.png"));
-	my $response;
-	if ($method=~/(?:post|put)/) {	
-		$response = $this->ua->$method("https://api.imgur.com/$path",$params,'Authorization'=>"Client-ID ".$this->api_key);
-	} else {
-		$response = $this->ua->$method("https://api.imgur.com/$path",'Authorization'=>"Client-ID ".$this->api_key);
+	my $auth;
+	if ($this->access_token) {
+		$auth="Bearer ".$this->access_token;
+	} else {	
+		$auth="Client-ID ".$this->client_id;
 	}
+
+	my $response;
+	if ($method=~/(?:post|put|get)/) {	
+		$response = $this->ua->$method($path,$params,'Authorization'=>$auth);
+	} else {
+		$response = $this->ua->$method($path,'Authorization'=>$auth);
+	}
+	say Dumper($response);
 	if ($response->content_type eq "application/json") {
 		$this->stats->update($response);
 		my $json = JSON::XS::decode_json($response->decoded_content);
@@ -120,6 +127,11 @@ sub misc {
     my ($this) = shift;
 
     return Imgur::API::Endpoint::Misc->new(dispatcher=>$this);
+}
+sub oauth {
+	my ($this) = shift;
+
+	return Imgur::API::Endpoint::OAuth->new(dispatcher=>$this);
 }
 
 

@@ -14,6 +14,7 @@ use Imgur::API::Endpoint::Memegen;
 use Imgur::API::Endpoint::Notification;
 use Imgur::API::Endpoint::Topic;
 use Imgur::API::Endpoint::Misc;
+use Imgur::API::Endpoint::OAuth;
 
 use Mouse;
 use Data::Dumper;
@@ -42,9 +43,9 @@ sub path {
 		}
 	}
 	if (scalar(@parts)) {
-		return join("/",$main,join("/",@parts));
+		return "https://api.imgur.com/".join("/",$main,join("/",@parts));
 	} else {
-		return $main;
+		return "https://api.imgur.com/$main";
 	}
 }
 
